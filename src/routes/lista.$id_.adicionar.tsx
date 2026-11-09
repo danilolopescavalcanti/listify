@@ -19,7 +19,7 @@ export const Route = createFileRoute("/lista/$id_/adicionar")({
 });
 
 function Adicionar() {
-  const { id } = Route.useParams();
+  const { id } = Route.useParams() as { id: string };
   const lista = useLista(id);
   const todas = useListas();
   const navigate = useNavigate();
