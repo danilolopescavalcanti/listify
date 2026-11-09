@@ -24,7 +24,7 @@ function Adicionar() {
   const todas = useListas();
   const navigate = useNavigate();
   const [produto, setProduto] = useState("");
-  const [categoria, setCategoria] = useState(CATEGORIAS[0]);
+  const [categoria, setCategoria] = useState<string>(CATEGORIAS[0] ?? "Mercearia");
   const [quantidade, setQuantidade] = useState(1);
   const [unidade, setUnidade] = useState<Unidade>("un");
   const [preco, setPreco] = useState(0);
