@@ -7,9 +7,9 @@ import { actions, brl, dataBR, totais, useListas, type Lista } from "@/lib/store
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Minhas listas — Cestinha" },
+      { title: "Minhas listas — Listify" },
       { name: "description", content: "Veja suas listas de compras ativas e o histórico de listas anteriores." },
-      { property: "og:title", content: "Minhas listas — Cestinha" },
+      { property: "og:title", content: "Minhas listas — Listify" },
       { property: "og:description", content: "Listas de compras ativas e histórico." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

@@ -81,7 +81,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Cestinha — Listas de compras" },
+      { title: "Listify — Listas de compras" },
       { name: "description", content: "Organize listas de compras e compare gasto estimado e real." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

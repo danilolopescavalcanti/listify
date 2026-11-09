@@ -9,7 +9,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-4 md:px-8">
           <Link to="/" className="flex items-center gap-2">
             <ShoppingBasket className="h-6 w-6" />
-            <span className="font-display text-xl font-bold">Cestinha</span>
+            <span className="font-display text-xl font-bold">Listify</span>
           </Link>
           <span className="ml-auto hidden text-sm opacity-80 sm:block">Suas listas de compras</span>
         </div>
