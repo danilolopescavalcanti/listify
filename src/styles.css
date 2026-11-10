@@ -1,9 +1,9 @@
 /*
- * Tailwind v4 entry: config lives here, with no tailwind.config.js or PostCSS plugin.
- * - Keep every @import in this top block, above @theme and the rest of the file. Install an
- *   npm package before @importing its CSS. Never @import a remote URL (web fonts, CDN CSS): the
- *   build resolves @import from the filesystem. Load those with a <link> in the head() of
- *   src/routes/__root.tsx and name the family in a --font-* token in @theme inline below.
+ * Entrada do Tailwind v4: a configuração fica aqui, sem tailwind.config.js nem plugin PostCSS.
+ * - Mantenha todo @import neste bloco do topo, acima de @theme e do resto do arquivo. Instale o
+ *   pacote npm antes de importar o CSS dele. Nunca importe uma URL remota (fontes web, CSS de CDN):
+ *   o build resolve @import pelo sistema de arquivos. Carregue essas com um <link> no head() de
+ *   src/routes/__root.tsx e dê o nome da família num token --font-* no @theme inline abaixo.
  */
 @import "tailwindcss" source(none);
 @source "../src";
@@ -12,21 +12,21 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Design system definition.
+ * Definição do sistema de design.
  *
- * The design lives in this file: oklch color tokens on the shadcn variables
- * (--background, --foreground, --primary, --secondary, --muted, --accent, ...) plus
- * new tokens as needed, font tokens, and custom styles and animations.
+ * O design mora neste arquivo: tokens de cor em oklch sobre as variáveis do shadcn
+ * (--background, --foreground, --primary, --secondary, --muted, --accent, ...) mais
+ * novos tokens conforme preciso, tokens de fonte, estilos e animações customizados.
  *
- * The @theme inline block maps CSS custom properties to Tailwind utility
- * classes (e.g. --color-primary -> bg-primary, text-primary).
+ * O bloco @theme inline faz a ponte entre as propriedades customizadas de CSS e as
+ * classes utilitárias do Tailwind (ex.: --color-primary -> bg-primary, text-primary).
  *
- * The :root and .dark blocks define the actual color values using oklch.
- * All colors MUST use oklch format.
+ * Os blocos :root e .dark definem os valores reais das cores em oklch.
+ * Todas as cores DEVEM usar o formato oklch.
  *
- * To add a new semantic color:
- * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ * Para adicionar uma nova cor semântica:
+ * 1. Adicione a variável em :root (valor claro) e .dark (valor escuro)
+ * 2. Registre em @theme inline como --color-<nome>: var(--<nome>)
  */
 
 @theme inline {
