@@ -1,18 +1,19 @@
-// The shared TanStack Start Vite config already includes the following — do NOT add them manually
-// or the app will break with duplicate plugins:
-//   - TanStack devtools (dev-only, first), tanstackStart, viteReact, tailwindcss, tsConfigPaths,
-//     nitro (build-only using cloudflare as a default target), VITE_* env injection, @ path alias,
-//     React/TanStack dedupe, error logger plugins, and sandbox detection (port/host/strictPort).
-// Never set ssr.external or resolve.external: the Worker has no runtime module resolution, so
-// the build fails. Never add compression (compressPublicAssets, vite-plugin-compression):
-// hosting already compresses at the edge.
-// You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
+// A configuração compartilhada do Vite para TanStack Start já inclui os itens abaixo — não os
+// adicione manualmente ou o app quebra com plugins duplicados:
+//   - TanStack devtools (só em desenvolvimento, primeiro), tanstackStart, viteReact, tailwindcss,
+//     tsConfigPaths, nitro (só no build, com cloudflare como alvo padrão), injeção das variáveis
+//     VITE_*, alias de caminho @, dedupe de React/TanStack, plugins de log de erros e detecção
+//     do sandbox (porta/host/strictPort).
+// Nunca defina ssr.external nem resolve.external: o Worker não resolve módulos em tempo de
+// execução, então o build falha. Nunca adicione compressão (compressPublicAssets,
+// vite-plugin-compression): a hospedagem já comprime na borda.
+// Você pode passar configurações extras em defineConfig({ vite: { ... }, etc... }) se precisar.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
   tanstackStart: {
-    // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-    // nitro/vite builds from this
+    // Redireciona o entry de servidor do TanStack Start para src/server.ts (nosso invólucro de
+    // erro de SSR). É a partir daqui que o nitro/vite monta o build.
     server: { entry: "server" },
   },
 });

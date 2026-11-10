@@ -1,6 +1,6 @@
 import { useSyncExternalStore } from "react";
 
-// Frontend-only mock store; the backend team will replace these functions with real API calls.
+// Store falsa só do frontend; o time de backend vai trocar estas funções por chamadas reais à API.
 export type Unidade = "un" | "kg" | "g" | "L" | "ml" | "pct";
 export type Item = {
   id: string;
@@ -81,7 +81,7 @@ export const totais = (l: Lista) => {
 export const brl = (n: number) => n.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 export const dataBR = (d: string) => new Date(d + "T12:00:00").toLocaleDateString("pt-BR");
 
-// Autocomplete: products already used, with last paid price as the reference estimate.
+// Autocomplete: produtos já usados, com o último preço pago como estimativa de referência.
 export type Sugestao = { produto: string; categoria: string; unidade: Unidade; preco: number };
 export const sugestoes = (all: Lista[]): Sugestao[] => {
   const m = new Map<string, Sugestao>();

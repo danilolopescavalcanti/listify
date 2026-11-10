@@ -17,19 +17,19 @@ const errorMiddleware = createMiddleware().server(async ({ next }) => {
   }
 });
 
-// Start installs this automatically when src/start.ts is absent; defining the
-// file opts out, so re-add it explicitly to keep server functions protected
-// from cross-site requests.
+// O Start instala isso automaticamente quando src/start.ts não existe; criar o
+// arquivo desativa esse comportamento, então o incluímos explicitamente para
+// manter as server functions protegidas contra requisições de outros sites.
 const csrfMiddleware = createCsrfMiddleware({
   filter: (ctx) => ctx.handlerType === "serverFn",
 });
 
-// requestMiddleware runs on every request; functionMiddleware only on server functions, where
-// client sendContext is unvalidated input. Append to these arrays, never replace them.
-// If this app is later connected to a backend that requires authentication, add its
-// bearer-token middleware here as functionMiddleware: [attachAuth]. Add it by hand only
-// when such a backend is really connected, no middleware here sets Authorization, and
-// the project did not intentionally replace it.
+// requestMiddleware roda em toda requisição; functionMiddleware só nas server functions, onde
+// o sendContext do cliente é entrada não validada. Acrescente a estes arrays, nunca os substitua.
+// Se este app for ligado a um backend que exige autenticação, adicione o middleware de
+// token bearer aqui como functionMiddleware: [attachAuth]. Só faça isso manualmente quando
+// um backend assim estiver realmente conectado, nenhum middleware aqui definir
+// Authorization e o projeto não ter substituído isso de propósito.
 export const startInstance = createStart(() => ({
   requestMiddleware: [errorMiddleware, csrfMiddleware],
 }));

@@ -72,7 +72,7 @@ function Detalhe() {
             </p>
           )}
           {grupos.map((cat) => {
-            // Purchased items go to the end of each category.
+            // Itens comprados vão para o fim de cada categoria.
             const itens = lista.itens.filter((i) => i.categoria === cat).sort((a, b) => Number(a.comprado) - Number(b.comprado));
             return (
               <div key={cat}>

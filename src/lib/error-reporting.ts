@@ -1,5 +1,5 @@
-// Errors caught by the root error boundary are reported here, with the route they
-// happened on, so they still reach the browser console with their full detail.
+// Os erros pegados pelo error boundary da raiz são relatados aqui, com a rota em que
+// aconteceram, para continuarem chegando ao console do navegador com todos os detalhes.
 
 type ErrorReportOptions = {
   mechanism?: "manual" | "onerror" | "unhandledrejection" | "react_error_boundary";
@@ -26,8 +26,8 @@ export function reportError(error: unknown, context: Record<string, unknown> = {
 
 const MAX_SERIALIZED_LENGTH = 2000;
 
-// Loaders and server fns throw raw Responses and plain objects (an API's
-// `{ message, code, details }`), which String() reduces to "[object ...]".
+// Loaders e server functions lançam Responses cruas e objetos simples (o
+// `{ message, code, details }` de uma API), que String() reduz a "[object ...]".
 function describeThrown(error: unknown): string {
   if (error instanceof Response) {
     return `Response ${error.status}${error.url ? ` at ${error.url}` : ""}`;

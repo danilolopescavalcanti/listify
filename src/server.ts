@@ -18,8 +18,8 @@ async function getServerEntry(): Promise<ServerEntry> {
   return serverEntryPromise;
 }
 
-// h3 swallows in-handler throws into a normal 500 Response with body
-// {"unhandled":true,"message":"HTTPError"} — try/catch alone never fires for those.
+// O h3 engole erros lançados dentro do handler numa Response 500 comum com corpo
+// {"unhandled":true,"message":"HTTPError"} — só try/catch nunca dispara nesses casos.
 async function normalizeCatastrophicSsrResponse(response: Response): Promise<Response> {
   if (response.status < 500) return response;
   const contentType = response.headers.get("content-type") ?? "";
@@ -44,9 +44,9 @@ function isH3SwallowedErrorBody(body: string): boolean {
   }
 }
 
-// Hosting compresses every response at the edge. Never compress a body (gzip, brotli,
-// CompressionStream) or set content-encoding here or in a server route: the body gets encoded
-// twice and renders garbled.
+// A hospedagem comprime toda resposta na borda. Nunca comprima um corpo (gzip, brotli,
+// CompressionStream) nem defina content-encoding aqui ou numa rota de servidor: o corpo é
+// codificado duas vezes e aparece corrompido.
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
